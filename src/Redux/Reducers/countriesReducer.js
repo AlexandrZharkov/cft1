@@ -10,6 +10,18 @@ export function countriesReducer(state = {countries: [],is_loading:false},action
 
         case CountriesConstants.GET_COUNTRIES_FULFILLED:{
             state = { ...state, is_loading:false, countries:action.payload.data};
+            state.countries.push({
+                "id":"unknown",
+                "code":"UNKNOWN",
+                "name":"НЕИЗВЕСТНО",
+                "phoneInfo":{
+                    "prefix":"+",
+                    "minLength":12,
+                    "maxLength":12,
+                    "format":"+000000000000"
+                }}
+            );
+
             break;
         }
 
